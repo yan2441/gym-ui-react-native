@@ -2,11 +2,13 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native'
 import { Ionicons } from "@expo/vector-icons"
 import { LinearGradient } from 'expo-linear-gradient';
+import { FloatingAction } from 'react-native-floating-action';
 
 
 const ExerciseScreen = () => {
   return (
     <View style={styles.container}>
+      <FloatingAction color={'#7368FF'} overlayColor={'#000'} />
       {/* background image */}
       <View style={styles.imgCon}>
         <Image style={styles.img} source={require('../assets/bg.png')} />
@@ -30,13 +32,13 @@ const ExerciseScreen = () => {
         </View>
         {/* music controller */}
         <View style={styles.controllerCont}>
-          <Ionicons name="reload" color={"#fff"} size={25} />
-          <Ionicons name="play-skip-back" color={"#fff"} size={25} />
+          <Ionicons name="reload" color={"#fff"} size={20} />
+          <Ionicons name="play-skip-back" color={"#fff"} size={20} />
           <View style={styles.pauseBtn}>
             <Ionicons name="pause" color={"#fff"} size={25} />
           </View>
-          <Ionicons name="play-skip-forward" color={"#fff"} size={25} />
-          <Ionicons name="stop" color={"#fff"} size={25} />
+          <Ionicons name="play-skip-forward" color={"#fff"} size={20} />
+          <Ionicons name="stop" color={"#fff"} size={20} />
         </View>
 
       </View>
@@ -69,6 +71,7 @@ const styles = StyleSheet.create({
   img: {
     height: 400,
     width: 600,
+    resizeMode: "cover"
   },
   linearGradient: {
     position: "absolute",
@@ -79,7 +82,7 @@ const styles = StyleSheet.create({
     zIndex: 2
   },
   card: {
-    height: '15%',
+    height: '12%',
     width: '100%',
     backgroundColor: "rgba(37, 37, 37, 0.3)",
     flexDirection: "row",
@@ -96,8 +99,9 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 17,
-    fontWeight: "500"
+    fontSize: 15,
+    fontWeight: "500",
+    fontFamily: "Poppins_400Regular"
   },
   cardIcon: {
     width: '20%',
@@ -120,7 +124,8 @@ const styles = StyleSheet.create({
   headerText: {
     color: "#fff",
     fontWeight: '500',
-    fontSize: 50
+    fontSize: 50,
+    fontFamily: "Poppins_400Regular"
   },
   controllerCont: {
     width: "100%",

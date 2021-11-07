@@ -2,10 +2,12 @@ import React from 'react';
 
 import { StyleSheet, Text, View } from 'react-native'
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { FloatingAction } from "react-native-floating-action";
 
 const WorkOutScreen = () => {
   return (
     <View style={styles.con}>
+      <FloatingAction color={'#7368FF'} overlayColor={'#000'} />
       {/* header */}
       <View style={styles.header}>
         <Text style={styles.headerText}>My workout week</Text>
@@ -35,7 +37,16 @@ const WorkOutScreen = () => {
         </View>
         <View style={styles.card}>
           <View style={styles.cardText}>
-            <Text style={styles.title}>20X Jump rope</Text>
+            <Text style={styles.title}>20x Squat thrust split jumps</Text>
+            <Text style={styles.subtitle}>02:00</Text>
+          </View>
+          <View style={styles.cardIcon}>
+            <MaterialCommunityIcons name="play" color={"#FF6C59"} size={30} />
+          </View>
+        </View>
+        <View style={styles.card}>
+          <View style={styles.cardText}>
+            <Text style={styles.title}>20x Squat thrust split jumps</Text>
             <Text style={styles.subtitle}>02:00</Text>
           </View>
           <View style={styles.cardIcon}>
@@ -67,7 +78,8 @@ const styles = StyleSheet.create({
   headerText: {
     color: "#fff",
     fontWeight: '500',
-    fontSize: 40
+    fontSize: 36,
+    fontFamily: "Poppins_400Regular"
   },
   divider: {
     position: "absolute",
@@ -90,7 +102,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#252525",
     borderRadius: 20,
     flexDirection: "row",
-    marginVertical: 5
+    marginVertical: 10
   },
   cardText: {
     width: '80%',
@@ -99,13 +111,15 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 20,
-    fontWeight: "500"
+    fontSize: 16,
+    fontWeight: "500",
+    fontFamily: "Poppins_400Regular"
   },
   subtitle: {
     color: '#828282',
-    fontSize: 16,
-    fontWeight: "500"
+    fontSize: 14,
+    fontWeight: "500",
+    fontFamily: "Poppins_400Regular"
   },
   cardIcon: {
     width: '20%',

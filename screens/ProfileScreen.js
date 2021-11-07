@@ -39,7 +39,7 @@ const ProfileScreen = () => {
             <Text style={styles.title}>02:30:15</Text>
           </View>
           <View style={styles.cardIcon}>
-            <Diamond />
+            <Timer />
           </View>
         </View>
 
@@ -59,7 +59,7 @@ const ProfileScreen = () => {
             <Text style={styles.title}>6420 points</Text>
           </View>
           <View style={styles.cardIcon}>
-            <Timer />
+            <Diamond />
           </View>
         </View>
 
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
   headerText: {
     color: "#fff",
     fontWeight: '500',
-    fontSize: 40
+    fontSize: 40,
+    fontFamily: "Poppins_400Regular"
   },
   profileCon: {
     height: '30%',
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   card: {
-    height: '30%',
+    height: 110,
     width: '100%',
     backgroundColor: "#252625",
     borderRadius: 20,
@@ -134,24 +135,27 @@ const styles = StyleSheet.create({
   },
   cardText: {
     width: '70%',
-    padding: 20,
-    justifyContent: 'center'
+    padding: 30,
+    justifyContent: 'center',
   },
   title: {
     color: '#fff',
-    fontSize: 20,
-    fontWeight: "500"
+    fontSize: 22,
+    fontWeight: "500",
+    fontFamily: "Poppins_400Regular"
   },
   subtitle: {
     color: '#828282',
     fontSize: 16,
-    fontWeight: "500"
+    fontWeight: "500",
+    fontFamily: "Poppins_400Regular",
   },
   name: {
     color: '#fff',
     fontSize: 20,
     fontWeight: "700",
-    marginVertical: 5
+    marginVertical: 5,
+    fontFamily: "Poppins_400Regular"
   },
   level: {
     color: '#828282',

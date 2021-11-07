@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Diamond from '../components/svg/Diamond';
-import Flame from '../components/svg/flame';
+import Flame from '../components/svg/Flame';
 import Timer from '../components/svg/Timer';
 
 

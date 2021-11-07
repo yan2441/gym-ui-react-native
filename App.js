@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import WorkOutScreen from './screens/WorkOutScreen';
 import ExerciseScreen from './screens/ExerciseScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import QrCodeScreen from './screens/QrCodeScreen';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from 'expo-constants';
 import {
@@ -16,6 +17,7 @@ import {
 import Home from './components/svg/Home';
 import Wallet from './components/svg/Wallet';
 import Profile from './components/svg/Profile';
+import AppLoading from 'expo-app-loading';
 
 
 const Tab = createBottomTabNavigator();
@@ -28,50 +30,64 @@ export default function App() {
     Poppins_500Medium,
   });
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <NavigationContainer>
-        <Tab.Navigator
-          initialRouteName="profile"
-          screenOptions={{
-            tabBarActiveTintColor: '#e91e63',
-            headerShown: false,
-            tabBarShowLabel: false,
-            tabBarStyle: { backgroundColor: '#000', borderTopColor: "#000" },
-          }}>
-          <Tab.Screen
-            name="workOut"
-            component={WorkOutScreen}
-            options={{
-              tabBarLabel: 'Home',
-              tabBarIcon: ({ color, size }) => (
-                <Home name="home" color={color} size={size} />
-              ),
-            }} />
-          <Tab.Screen
-            name="exercise"
-            component={ExerciseScreen}
-            options={{
-              tabBarLabel: 'work',
-              tabBarIcon: ({ color, size }) => (
-                <Wallet name="wallet" color={color} size={size} />
-              ),
-            }}
-          />
-          <Tab.Screen
-            name="profile"
-            component={ProfileScreen}
-            options={{
-              tabBarLabel: 'profile',
-              tabBarIcon: ({ color, size }) => (
-                <Profile name="account" color={color} size={size} />
-              ),
-            }}
-          />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </SafeAreaView>
-  );
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <SafeAreaView style={styles.container}>
+        <NavigationContainer>
+          <Tab.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              tabBarActiveTintColor: '#e91e63',
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarStyle: { backgroundColor: '#000', borderTopColor: "#000" },
+            }}>
+            <Tab.Screen
+              name="workOut"
+              component={WorkOutScreen}
+              options={{
+                tabBarLabel: 'Home',
+                tabBarIcon: ({ color, size }) => (
+                  <Home name="home" color={color} size={size} />
+                ),
+              }} />
+            <Tab.Screen
+              name="exercise"
+              component={ExerciseScreen}
+              options={{
+                tabBarLabel: 'work',
+                tabBarIcon: ({ color, size }) => (
+                  <Wallet name="wallet" color={color} size={size} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="profile"
+              component={ProfileScreen}
+              options={{
+                tabBarLabel: 'profile',
+                tabBarIcon: ({ color, size }) => (
+                  <Profile name="account" color={color} size={size} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="qr"
+              component={QrCodeScreen}
+              options={{
+                tabBarLabel: 'profile',
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons name="qrcode" color={color} size={size} />
+                ),
+              }}
+            />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

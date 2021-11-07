@@ -13,11 +13,16 @@ import {
   Poppins_500Medium,
   useFonts
 } from '@expo-google-fonts/poppins'
+import Home from './components/svg/Home';
+import Wallet from './components/svg/Wallet';
+import Profile from './components/svg/Profile';
+
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  useFonts({
+
+  let [fontsLoaded] = useFonts({
     Poppins_300Light,
     Poppins_400Regular,
     Poppins_500Medium,
@@ -31,6 +36,8 @@ export default function App() {
           screenOptions={{
             tabBarActiveTintColor: '#e91e63',
             headerShown: false,
+            tabBarShowLabel: false,
+            tabBarStyle: { backgroundColor: '#000', borderTopColor: "#000" },
           }}>
           <Tab.Screen
             name="workOut"
@@ -38,7 +45,7 @@ export default function App() {
             options={{
               tabBarLabel: 'Home',
               tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="home" color={color} size={size} />
+                <Home name="home" color={color} size={size} />
               ),
             }} />
           <Tab.Screen
@@ -47,7 +54,7 @@ export default function App() {
             options={{
               tabBarLabel: 'work',
               tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="wallet" color={color} size={size} />
+                <Wallet name="wallet" color={color} size={size} />
               ),
             }}
           />
@@ -57,7 +64,7 @@ export default function App() {
             options={{
               tabBarLabel: 'profile',
               tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="account" color={color} size={size} />
+                <Profile name="account" color={color} size={size} />
               ),
             }}
           />

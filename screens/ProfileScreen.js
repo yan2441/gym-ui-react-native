@@ -7,6 +7,7 @@ import Timer from '../components/svg/Timer';
 
 
 const ProfileScreen = () => {
+
   return (
     <View style={styles.con}>
       {/* header */}

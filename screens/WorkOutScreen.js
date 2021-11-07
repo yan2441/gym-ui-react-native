@@ -3,11 +3,15 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native'
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FloatingAction } from "react-native-floating-action";
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+
 
 const WorkOutScreen = () => {
+  const tabBarHeight = useBottomTabBarHeight();
   return (
-    <View style={styles.con}>
-      <FloatingAction color={'#7368FF'} overlayColor={'#000'} />
+    <View style={[styles.con, { paddingBottom: tabBarHeight }]}>
+      <FloatingAction color={'#7368FF'} overlayColor={'#000'}
+        floatingIcon={<MaterialCommunityIcons name='qrcode' color={"#fff"} size={30} />} />
       {/* header */}
       <View style={styles.header}>
         <Text style={styles.headerText}>My workout week</Text>
@@ -56,7 +60,7 @@ const WorkOutScreen = () => {
 
       </View>
 
-    </View>
+    </View >
   )
 }
 

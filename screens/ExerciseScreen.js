@@ -3,12 +3,17 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import { Ionicons } from "@expo/vector-icons"
 import { LinearGradient } from 'expo-linear-gradient';
 import { FloatingAction } from 'react-native-floating-action';
-
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const ExerciseScreen = () => {
   return (
     <View style={styles.container}>
-      <FloatingAction color={'#7368FF'} overlayColor={'#000'} />
+
+      <FloatingAction
+        color={'#7368FF'}
+        overlayColor={'#000'}
+        floatingIcon={<MaterialCommunityIcons name='qrcode' color={"#fff"} size={30} />}
+      />
       {/* background image */}
       <View style={styles.imgCon}>
         <Image style={styles.img} source={require('../assets/bg.png')} />
@@ -69,7 +74,7 @@ const styles = StyleSheet.create({
     zIndex: 1
   },
   img: {
-    height: 400,
+    height: 600,
     width: 600,
     resizeMode: "cover"
   },
@@ -132,7 +137,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    marginBottom: 100
+    marginBottom: 80
   },
   pauseBtn: {
     backgroundColor: "#7368FF",
